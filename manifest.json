@@ -4,13 +4,34 @@
   "name": "Fullscreen for trello card",
   "description": "Expanding trello cards to fill up your whole browser area in one button click.",
   "version": "1.0",
-
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "icon-512.png"
   },
+  "icons": {
+    "512": "icon-512.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+      "matches": ["http://*/*", "https://*/*", "file:///*"],
+      "js": ["start.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["http://*/*", "https://*/*", "file:///*"],
+      "js": ["main.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
   "permissions": [
-    "activeTab",
-    "storage"
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "contextMenus",
+    "clipboardRead",
+    "clipboardWrite"
   ]
 }
