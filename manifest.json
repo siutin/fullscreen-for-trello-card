@@ -13,25 +13,8 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "content_scripts": [{
-      "matches": ["http://*/*", "https://*/*", "file:///*"],
-      "js": ["start.js"],
-      "run_at": "document_start",
-      "all_frames": true
-    },
-    {
-      "matches": ["http://*/*", "https://*/*", "file:///*"],
-      "js": ["main.js"],
-      "run_at": "document_end",
-      "all_frames": true
-    }
-  ],
   "permissions": [
-    "http://*/*",
-    "https://*/*",
-    "tabs",
-    "contextMenus",
-    "clipboardRead",
-    "clipboardWrite"
+    "https://trello.com/*/*",
+    "tabs"
   ]
 }
